@@ -1,7 +1,7 @@
 local TS = {}
-
+ltime = storm.os.now(storm.os.SHIFT_0)
 function TS:init()
-
+	
 	obj = { 
 		cport=49152,
 		correction=0,
