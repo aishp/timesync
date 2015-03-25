@@ -23,3 +23,5 @@ function D:incval()
 	print("Mem:"..self.val)
 
 end
+
+return D
