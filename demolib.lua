@@ -6,7 +6,7 @@ function D:init(memval)
 	setmetatable(obj,self)
 	self.__index=self
 	obj.val = 2
-	return self
+	return obj
 end
 
 function D:incmem()
