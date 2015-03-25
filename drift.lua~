@@ -6,8 +6,7 @@ require "cord"
 --	fd = io.open("drift.txt", "w")
 --	io.output(file)
 	csock = storm.net.udpsocket(cport, function (payload, srcip, srcport) 
-        curtime= storm.os.now(storm.os.SHIFT_0) + correction
-	storm.net.sendto(csock, payload, srcip, cport) 
+        curtime= storm.os.now(storm.os.SHIFT_0) + correction 
 	mtime = tonumber(payload)
 	--print("Before Correction:".. curtime)
 	--print("Master time:"..mtime)
