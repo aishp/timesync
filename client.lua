@@ -10,13 +10,15 @@ function TS:init()
 		}
 	setmetatable(obj,self)
 	self.__index=self
+--	print("Init time:"..obj.ltime)
 	obj.csock=storm.net.udpsocket(obj.cport,
 			function(payload, srcip, srcport)
-				if(payload > storm.os.now(storm.os.SHIFT_0)) then 
-					obj.correction = payload - storm.os.now(storm.os.SHIFT_0)
+--				print("Received Master time:"..payload)
+				if(tonumber(payload) > storm.os.now(storm.os.SHIFT_0)) then 
+					obj.correction = tonumber(payload) - storm.os.now(storm.os.SHIFT_0)
 					sign = 1
 				else
-					obj.correction = storm.os.now(storm.os.SHIFT_0) - payload
+					obj.correction = storm.os.now(storm.os.SHIFT_0) - tonumber(payload)
 					sign = 0
 				end
 			end)
